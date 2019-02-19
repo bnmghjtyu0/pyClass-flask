@@ -7,3 +7,5 @@ def home():
     return "Hello Python !"
 
 app.run(port=5000)
+
+# / = slash
