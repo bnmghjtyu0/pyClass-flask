@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myElement">Hello,world</div>
+
+    <script type="text/javascript">
+      // 方法一。
+
+      //   function httpGetAsync(theUrl, callback) {
+      //     var xmlHttp = new XMLHttpRequest();
+      //     xmlHttp.onreadystatechange = function() {
+      //       if (xmlHttp.readyState == 4 && xmlHttp.state == 200)
+      //         callback(xmlHttp.responseText);
+      //     };
+      //     xmlHttp.open("GET", theUrl, true); // true for asynchonous
+      //     xmlHttp.send(null);
+      //   }
+      //   httpGetAsync('http://127.0.0.1:5000/store',function(response){
+      //       console.log(response)
+      //   })
+
+      // 方法二。
+      // get1
+      fetch("http://127.0.0.1:5000/store/apiOne", {
+        method: "GET"
+      }).then(res => console.log(res));
+      // get2
+      fetch("http://127.0.0.1:5000/store", {
+        method: "GET"
+      }).then(res => console.log(res));
+      // get3
+      fetch("http://127.0.0.1:5000/store/apiOne/item", {
+        method: "GET"
+      }).then(res => console.log(res));
+
+      const url = "http://127.0.0.1:5000/store";
+      const data = { name: 1234 };
+      fetch(url, {
+        method: "POST", // or 'PUT'
+        data: JSON.stringify(data)
+      }).then(res => console.log(res));
+    </script>
+  </body>
+</html>
