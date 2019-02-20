@@ -22,10 +22,9 @@ def home():
 # GET - used to send data back only
 
 
-# POST /store data: {name} 
+# POST /store data: {name} 新增
 @app.route('/store', methods=['POST'])
-def create_store(name):
-    print(name)
+def create_store():
     request_data = request.get_json()
     new_store = {
         'name':request_data['name']

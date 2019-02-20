@@ -29,22 +29,42 @@
       // get1
       fetch("http://127.0.0.1:5000/store/apiOne", {
         method: "GET"
-      }).then(res => console.log(res));
+      }).then(res => {
+        return console.log(`get /store/apiOne`), console.log(res);
+      });
       // get2
       fetch("http://127.0.0.1:5000/store", {
         method: "GET"
-      }).then(res => console.log(res));
+      })
+        .then(res => {
+          return console.log(`get /store`), console.log(res);
+        })
       // get3
       fetch("http://127.0.0.1:5000/store/apiOne/item", {
         method: "GET"
-      }).then(res => console.log(res));
+      }).then(res => {
+        return console.log(`get /store/apiOne/item`), console.log(res);
+      });
 
       const url = "http://127.0.0.1:5000/store";
-      const data = { name: 1234 };
+      const data = { name: "Richard" };
       fetch(url, {
         method: "POST", // or 'PUT'
-        data: JSON.stringify(data)
-      }).then(res => console.log(res));
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(res => {
+        return console.log(`post /store`), console.log(res);
+      });
+
+      const url1 = "http://127.0.0.1:5000/store/apiOne/item";
+      const data1 = { name: "iRichard" };
+      fetch(url, {
+        method: "POST", // or 'PUT'
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(res => {
+        return console.log(`post /store/<name>/item`), console.log(res);
+      });
     </script>
   </body>
 </html>
